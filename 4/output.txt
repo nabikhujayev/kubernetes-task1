@@ -1,0 +1,4 @@
+NAME      READY   STATUS             RESTARTS      AGE
+busybox   0/1     CrashLoopBackOff   3 (50s ago)   99s
+nginx1    1/1     Running            0             11m
+nginx2    1/1     Running            0             10m
