@@ -11,7 +11,7 @@ spec:
     matchLabels:
       author: Abdumalik
       project: practice
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
