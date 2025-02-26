@@ -6,4 +6,4 @@ COPY . .
 ENV ENV=PROD
 ENV AUTHOR=a-nabixojayev
 EXPOSE 5000
-ENTRYPOINT [ "flask","run" ]
+ENTRYPOINT [ "flask","run","--host=0.0.0.0" ]
