@@ -8,7 +8,6 @@ metadata:
   namespace: a-nabixojayev
 spec:
   containers:
-    - command:
-        - sleep 3600
+    - command: ["sleep", "3600"]
       image: busybox
       name: busybox

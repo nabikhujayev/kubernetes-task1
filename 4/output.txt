@@ -1,4 +1,8 @@
-NAME      READY   STATUS             RESTARTS      AGE
-busybox   0/1     CrashLoopBackOff   3 (50s ago)   99s
-nginx1    1/1     Running            0             11m
-nginx2    1/1     Running            0             10m
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hr-app   1/1     1            1           10m
+
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/busybox                  1/1     Running   0          64s
+pod/hr-app-db6b5548c-fk6jt   1/1     Running   0          10m
+pod/nginx1                   1/1     Running   0          40m
+pod/nginx2                   1/1     Running   0          39m

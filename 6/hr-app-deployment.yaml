@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    project: practice
+    author: Abdumalik
+  name: hr-app
+  namespace: a-nabixojayev
+spec:
+  selector:
+    matchLabels:
+      author: Abdumalik
+      project: practice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        project: practice
+        author: Abdumalik
+      name: hr-app
+      namespace: a-nabixojayev
+    spec:
+      containers:
+        - image: nginx:1.18
+          name: hr-app
