@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    project: practice
+    author: Abdumalik
+  name: flask-app
+  namespace: a-nabixojayev
+spec:
+  selector:
+    matchLabels:
+      author: Abdumalik
+      project: practice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        project: practice
+        author: Abdumalik
+      name: flask-app
+      namespace: a-nabixojayev
+    spec:
+      containers:
+        - image: podman96/flask-app:v3
+          name: flask-app
