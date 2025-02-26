@@ -1,0 +1,16 @@
+      author: Abdumalik
+      author: Abdumalik
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"author":"farrukh","project":"practice","run":"nginx1"},"name":"nginx1","namespace":"f-sadatov"},"spec":{"containers":[{"image":"nginx:latest","name":"nginx1","ports":[{"containerPort":80}],"resources":{}}]}}
+      author: farrukh
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"author":"farrukh","project":"practice","run":"nginx2"},"name":"nginx2","namespace":"f-sadatov"},"spec":{"containers":[{"image":"nginx:latest","name":"nginx2","ports":[{"containerPort":80}],"resources":{}}]}}
+      author: farrukh
+      author: i-abdullayev
+      author: i-abdullayev
+      author: muzaffar
+      author: muzaffar
+      author: ToshevOsmon
+      author: ToshevOsmon
+      author: xurshid
+      author: xurshid
+      - author=Xondamir
+      - author=Xondamir
