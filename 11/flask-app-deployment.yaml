@@ -21,6 +21,6 @@ spec:
       namespace: a-nabixojayev
     spec:
       containers:
-        - image: podman96/flask-app:v3
+        - image: podman96/flask-app:v4
           name: flask-app
           imagePullPolicy: Always
