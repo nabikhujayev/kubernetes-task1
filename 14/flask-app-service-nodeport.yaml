@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service-abdumalik-clusterip
+  labels:
+    project: practice
+    author: Abdumalik
+  namespace: a-nabixojayev
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 5000
+  selector:
+    project: practice
+    author: Abdumalik
