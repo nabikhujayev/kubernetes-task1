@@ -5,6 +5,7 @@ metadata:
   labels:
     project: practice
     author: Abdumalik
+  namespace: a-nabixojayev
 spec:
   type: NodePort
   ports:

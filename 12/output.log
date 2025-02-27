@@ -1,0 +1,91 @@
+Script started on 2025-02-27 12:04:20+05:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="141" LINES="13"]
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mkubectl get deployments,service,pods  -n a-nabixojayev -o wide[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ckubectl get deployments,service,pods  -n a-nabixojayev -o wide
+[?2004lNAME                        READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                  SELECTOR
+deployment.apps/flask-app   2/2     2            2           11h   flask-app    podman96/flask-app:v4   author=Abdumalik,project=practice
+deployment.apps/hr-app      2/2     2            2           15h   hr-app       nginx:1.18              author=Abdumalik,project=practice
+
+NAME                                  TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/flask-app-service-abdumalik   NodePort   10.233.22.240   <none>        80:30380/TCP   17m   author=Abdumalik,project=practice
+
+NAME                             READY   STATUS    RESTARTS       AGE   IP              NODE    NOMINATED NODE   READINESS GATES
+pod/busybox                      1/1     Running   15 (49m ago)   15h   10.233.69.6     node1   <none>           <none>
+pod/flask-app-66bfd99785-7sg9d   1/1     Running   0              11h   10.233.68.40    node5   <none>           <none>
+pod/flask-app-66bfd99785-g8kmj   1/1     Running   0              11h   10.233.69.141   node1   <none>           <none>
+pod/hr-app-db6b5548c-fk6jt       1/1     Running   0              15h   10.233.68.65    node5   <none>           <none>
+pod/hr-app-db6b5548c-j4gx5       1/1     Running   0              15h   10.233.67.55    node3   <none>           <none>
+pod/nginx1                       1/1     Running   0              16h   10.233.68.202   node5   <none>           <none>
+pod/nginx2                       1/1     Running   0              16h   10.233.64.58    node2   <none>           <none>
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m kubectl get node -o wide
+[?2004lNAME           STATUS   ROLES           AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+master-node1   Ready    control-plane   9d    v1.32.0   37.27.12.106     <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+node1          Ready    <none>          9d    v1.32.0   65.21.184.121    <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+node2          Ready    <none>          9d    v1.32.0   65.108.62.223    <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+node3          Ready    <none>          9d    v1.32.0   65.21.148.14     <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+node4          Ready    <none>          9d    v1.32.0   157.180.26.144   <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+node5          Ready    <none>          9d    v1.32.0   157.180.26.81    <none>        Ubuntu 24.04.1 LTS   6.8.0-51-generic   containerd://2.0.2
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mcurl http://65.21.184.121:30380/practice[27mcurl http://65.21.184.121:30380/practice
+[?2004lcurl: (7) Failed to connect to 65.21.184.121 port 30380 after 94 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://65.21.184.121:30380/practice
+[?2004l{"author":"a-nabixojayev","message":"Well DONE!"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mcurl http://65.21.184.121:30380/config[27mcurl http://65.21.184.121:30380/config
+[?2004lcurl: (7) Failed to connect to 65.21.184.121 port 30380 after 97 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://65.21.184.121:30380/config
+[?2004l{"author":"a-nabixojayev","db_url":"postgres://admin:supersecret@10.10.10.1:5432/exam-db","environment":"dev","grpc_port":"8080","log_level":"debug"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mcurl http://65.21.184.121:30380/check-ingress[27mcurl http://65.21.184.121:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 65.21.184.121 port 30380 after 99 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://65.21.184.121:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 65.21.184.121 port 30380 after 100 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://65.21.184.121:30380/check-ingress
+[?2004l{"domain":"65.21.184.121:30380","endpoint":"/check-ingress","full_path:":"65.21.184.121:30380/check-ingress"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mcurl http://65.21.184.121:30380/domain[27mcurl http://65.21.184.121:30380/domain
+[?2004l{"domain":"65.21.184.121:30380","endpoint":"/domain","log_level":"debug"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m [7mcurl http://65.21.184.121:30380/load-capability[27mcurl http://65.21.184.121:30380/load-capability
+[?2004l{"cpus":"0.1","memorys":"32Mi"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://65.21.184.121:30380/load-capability[9Pdomaincheck-ingress[7Ponfigpractice[16Pkubectl get node -o widecurl http://65.21.184.121:30380/practice[C[C[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[1P:30380/practice[7m157.180.26.81[27m:30380/practice157.180.26.81:30380/practice
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 78 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/practice
+[?2004l{"author":"a-nabixojayev","message":"Well DONE!"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/practice65.21.184.121:30380/load-capability[9Pdomaincheck-ingress[7Ponfigpractice[16Pkubectl get node -o widecurl http://65.21.184.121:30380/practice[2Pconfig[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[1P:30380/config[7m157.180.26.81[27m:30380/config157.180.26.81:30380/config
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 96 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 90 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 79 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 94 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 74 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config
+[?2004l{"author":"a-nabixojayev","db_url":"postgres://admin:supersecret@10.10.10.1:5432/exam-db","environment":"dev","grpc_port":"8080","log_level":"debug"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/config[1P:30380/config1:30380/practice65.21.184.121:30380/load-capability[9Pdomaincheck-ingress[7Ponfigpractice[16Pkubectl get node -o widecurl http://65.21.184.121:30380/practice[2Pconfigheck-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[1P:30380/check-ingress[7m157.180.26.81[27m:30380/check-ingress157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 124 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 83 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 74 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 136 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 72 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 95 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 94 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress
+[?2004l{"domain":"157.180.26.81:30380","endpoint":"/check-ingress","full_path:":"157.180.26.81:30380/check-ingress"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/check-ingress[8P:30380/config1:30380/practice65.21.184.121:30380/load-capability[9Pdomaincheck-ingress[7Pdomain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[1P:30380/domain[7m157.180.26.81[27m:30380/domain157.180.26.81:30380/domain
+[?2004l{"domain":"157.180.26.81:30380","endpoint":"/domain","log_level":"debug"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/domaincheck-ingress[8P:30380/config1:30380/practice65.21.184.121:30380/load-capability[9Pdomaincheck-ingress[7Pdomainload-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[1P:30380/load-capability[7m157.180.26.81[27m:30380/load-capability157.180.26.81:30380/load-capability
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 76 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/load-capability
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 74 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/load-capability
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 94 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/load-capability
+[?2004lcurl: (7) Failed to connect to 157.180.26.81 port 30380 after 96 ms: Could not connect to server
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m curl http://157.180.26.81:30380/load-capability
+[?2004l{"cpus":"0.1","memorys":"32Mi"}
+]0;abdumalik@fedora:~/Desktop/Docker/Kubernetes/Practice 01[?2004h[32mabdumalik@fedora[0m:[32m~/Desktop/Docker/Kubernetes/Practice 01[0m$[0m exit
+[?2004lexit
+
+Script done on 2025-02-27 12:09:36+05:00 [COMMAND_EXIT_CODE="0"]
