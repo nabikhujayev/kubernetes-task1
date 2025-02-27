@@ -1,0 +1,4 @@
+{"author":"a-nabixojayev","message":"Well DONE!"}
+{"cpus":"0.1","memorys":"32Mi"}
+{"domain":"localhost:8080","endpoint":"/domain","log_level":"debug"}
+{"domain":"localhost:8080","endpoint":"/check-ingress","full_path:":"localhost:8080/check-ingress"}
